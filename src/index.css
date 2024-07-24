@@ -156,9 +156,60 @@ header .shop_cart {
   top: 30px;
   right: 0;
   width: 450px;
-  min-height: 100px;
   background: #fffffff9;
   border-radius: 10px 10px 0 0;
   box-shadow:  3px 3px 11px -1px rgba(0, 0, 0, 0.75);
   z-index: 1;
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+header .shop_cart .item {
+  width: 100%;
+  margin-bottom: 20px;
+  float: left;
+}
+
+header .shop_cart .empty h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+header .shop_cart .item h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+header .shop_cart .item p {
+  color: rgba(4, 106, 41, 0.927);
+  font-weight: 600;
+}
+
+header .shop_cart .item img {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+header .shop_cart .item .delete_icon {
+  color: #a52a2a9c;
+  float: right;
+  position: relative;
+  top: -25px;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+}
+
+header .shop_cart .item .delete_icon:hover {
+  color: #a52a2a;
+  transform: scale(1.1);
+}
+
+header .shop_cart .summa {
+  float: left;
+  margin-bottom: 20px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  
 }
