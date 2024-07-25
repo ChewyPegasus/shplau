@@ -211,5 +211,27 @@ header .shop_cart .summa {
   width: 100%;
   font-weight: 600;
   font-size: 20px;
-  
+}
+
+.categories {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.categories div {
+  display: inline-block;
+  background: #c3e2ea;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-bottom: 25px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: all 500ms linear;
+  border: 1px solid transparent
+}
+
+.categories div:hover {
+  transform: scale(1.05);
+  border-color: #053541aa;
 }
