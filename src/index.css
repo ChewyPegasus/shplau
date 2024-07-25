@@ -93,26 +93,32 @@ main .item {
   padding-bottom: 20px;
 }
 
-main .item img {
+main .item img,
+.full_item  img {
   width: 100%;
   border-radius: 10px 10px 0 0;
   transition: transform 500ms ease;
+  cursor: pointer;
 }
 
-main .item img:hover {
+main .item img:hover,
+.full_item img:hover {
   transform: scale(1.05);
 }
 
-main h2, main p, main b {
+main h2, main p, main b,
+.full_item h2, .full_item p, .full_item b {
   margin: 10px 20px;
   color: #333;
 }
 
-main b {
+main b,
+.full_item b {
   color: #5fa36a;
 }
 
-main .add_to_cart {
+main .add_to_cart,
+.full_item .add_to_cart {
   position: absolute;
   right: 20px;
   bottom: 20px;
@@ -129,7 +135,8 @@ main .add_to_cart {
   transition: transform 500ms ease;
 }
 
-main .add_to_cart:hover {
+main .add_to_cart:hover,
+.full_item .add_to_cart:hover {
   transform: scale(1.2);
   background-color: #07f5f5;
 }

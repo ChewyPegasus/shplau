@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-export class Item extends Component {
+export class ShowFullItem extends Component {
   render() {
     return (
-      <div className='item'>
+      <div className='full_item'>
         <img src={"./img/" + this.props.item.img} alt='' onClick={() => this.props.onShowItem(this.props.item)} />
         <h2>{this.props.item.title}</h2>
         <p>{this.props.item.desc}</p>
@@ -14,4 +14,4 @@ export class Item extends Component {
   }
 }
 
-export default Item
+export default ShowFullItem
