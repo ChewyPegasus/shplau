@@ -242,3 +242,31 @@ header .shop_cart .summa {
   transform: scale(1.05);
   border-color: #053541aa;
 }
+
+.full_item {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000000af;
+  z-index: 10;
+  overflow: auto;
+}
+
+.full_item > div {
+  width: 600px;
+  position: relative;
+  margin: 10% auto;
+  padding: 40px 30px;
+  margin-top: 3%;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.full_item .cross {
+  float: right;
+  position: relative;
+  top: -20px;
+  cursor: pointer;
+}
