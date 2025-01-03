@@ -1,5 +1,5 @@
 # Этап сборки
-FROM gradle:7.6.1-jdk21-alpine AS build
+FROM gradle:7.6.1-jdk17-alpine AS build
 WORKDIR /app
 COPY . .
 RUN ./gradlew build -x test --no-daemon
