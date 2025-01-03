@@ -1,16 +1,19 @@
 # Этап сборки
-FROM gradle:7.6.1-jdk17-alpine AS build
+FROM gradle:7.6.1-jdk17 AS build
 WORKDIR /app
 
-# Устанавливаем дополнительные зависимости для исправления SystemInfo
-RUN apk add --no-cache bash libc6-compat
+# Устанавливаем дополнительные зависимости для совместимости
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libc6 \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY . .
 RUN chmod +x gradlew
 RUN ./gradlew build -x test --no-daemon
 
 # Этап выполнения
-FROM openjdk:21-slim
+FROM openjdk:17-slim
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 
