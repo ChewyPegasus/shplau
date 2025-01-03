@@ -1,14 +1,17 @@
-# Use OpenJDK 23 as base image
-FROM openjdk:23-jdk-slim
+FROM gradle:7.6.1-jdk17-alpine AS build
 
-# Set the working directory
 WORKDIR /app
+COPY . .
+RUN gradle build -x test
 
-# Copy the built JAR file
-COPY build/libs/*.jar app.jar
+FROM openjdk:17-slim
+WORKDIR /app
+COPY --from=build /app/build/libs/*.jar app.jar
 
-# Expose the application port
+# Добавляем переменные окружения из MySQL
+ENV DB_URL=jdbc:mysql://${MYSQLHOST}:${MYSQLPORT}/${MYSQLDATABASE}
+ENV DB_USERNAME=${MYSQLUSER}
+ENV DB_PASSWORD=${MYSQLPASSWORD}
+
 EXPOSE 8080
-
-# Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
