@@ -1,6 +1,10 @@
 # Этап сборки
 FROM gradle:7.6.1-jdk17-alpine AS build
 WORKDIR /app
+
+# Устанавливаем дополнительные зависимости для исправления SystemInfo
+RUN apk add --no-cache bash libc6-compat
+
 COPY . .
 RUN chmod +x gradlew
 RUN ./gradlew build -x test --no-daemon
