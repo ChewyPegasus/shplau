@@ -1,13 +1,15 @@
-FROM gradle:7.6.1-jdk17-alpine AS build
+# Этап сборки
+FROM gradle:7.6.1-jdk21-alpine AS build
 WORKDIR /app
 COPY . .
-RUN gradle wrapper
 RUN ./gradlew build -x test --no-daemon
 
-FROM openjdk:17-slim
+# Этап выполнения
+FROM openjdk:21-slim
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 
+# Переменные окружения для подключения к базе данных
 ENV DB_URL=jdbc:mysql://${MYSQLHOST}:${MYSQLPORT}/${MYSQLDATABASE}
 ENV DB_USERNAME=${MYSQLUSER}
 ENV DB_PASSWORD=${MYSQLPASSWORD}
