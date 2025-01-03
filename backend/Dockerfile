@@ -1,4 +1,4 @@
-FROM gradle:8.3-jdk21 AS build
+FROM gradle:7.6.1-jdk17-alpine AS build
 WORKDIR /app
 COPY . .
 RUN gradle wrapper
